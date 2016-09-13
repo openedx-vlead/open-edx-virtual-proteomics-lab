@@ -1,0 +1,77 @@
+<p><strong>Materials Required</strong></p>
+<ul type="circle">
+<li>System and Internet access</li>
+<li>Software: MODELLER9v8</li>
+</ul>
+<p>Protein sequence whose 3D structure needs to be built is obtained from Uniprot in .fasta format. URL:<a href="http://www.uniprot.org/">"http://www.uniprot.org/"</a></p>
+<div>&nbsp;<img src="http://pe-iitb.vlabs.ac.in/images/exp14/1.png" alt="" width="543px" height="203px" /></div>
+<p>For this experiment, we have used MODELLER9v8 which is a Homology Modeling sofware. All the input files for running the following software are available here. The Software accepts the sequences with PIR format.</p>
+<p><strong>Step by step Procedure</strong>:</p>
+<ol start="1" type="1">
+<li>The above FASTA sequence is converted into PIR format to make it readable by the software. This file must have the extension of .ali format.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/2.png" alt="" /></div>
+<ol start="2" type="1">
+<li>After the .ali file is created, &ldquo;build_profile.py&rdquo; is searched for in the available input files. The &ldquo;build_profile.py&rdquo; file is obtained and the necessary changes are made.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/3.png" alt="" /></div>
+<ol start="3" type="1">
+<li>The script file is now run using the command interpreter as shown below:</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/4.png" alt="" /></div>
+<p>On running the betalactoglobulin_build_profile.py python file, a .prf is obtained which is the profile file of the query sequence and its homologs.</p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/5.png" alt="" /></div>
+<p>The most important columns in the profile.build() output are the II, XI and XII columns. The II column reports the code of the PDB sequence that was compared with the target sequence. The XI column reports the percentage sequence identities between betalactoglobulin and a PDB sequence normalized by the lengths of the alignment. In general, a sequence identity value above approximately 35% indicates a potential template. A better measure of the significance of the alignment is given in the XII column by the e-value of the alignment. To select the most appropriate template for our query sequence over the six similar structures, we will use the alignment.compare_structures() command to assess the structural and sequence similarity between the possible templates (file "betalactoglobulin_compare.py").</p>
+<ol start="4" type="1">
+<li>All the structural files for PDB database whose E value is 0.0 are obtained from the above obtained .prf file and they are listed in the compare.py file for the identification of thye best template.The Input file &ldquo;alignment.compare() &ldquo; is selected and all the templates are added.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/6.png" alt="" /></div>
+<p>The selected PDB files are mentioned in the compare.py file as one of these could be the probable template.</p>
+<ol start="5" type="1">
+<li>Now, the script file is run using the command interpreter as shown below.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/7.png" alt="" /></div>
+<ol start="6" type="1">
+<li>After running the compare file, the following dendogram is displayed. The templates are compared with each other. This comparison gives information about the crystallographic resolution of the pdb structure. The structure with a better crystallographic R-factor and higher overall sequence identity to the query sequence is selected to be aligned with the target sequence. The comparison shown above is for both sequential and structural similarity. The template with crystallographic R-factor should be in the range (1.5 to 2.5) and the sequence similarity should be as high as possible.</li>
+</ol>
+<p>For example, the below shown situation 1bdma has an Rfactor @1.8 and sequence similarity of &gt;40%, therefore it can be considered a good template. When there are two templates with optimal required parameters then both should be selected. The compare.log file is chosen to build the structure of the unknown protein and prepare the align2d.py file.</p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/8.png" alt="" /></div>
+<ol start="7" type="1">
+<li>The above selected template is the template according to which the model query will be built. The align2d.py file is modified as shown below. Appending of files i.e. original .ali file and the selected template will produce two alignment files .PIR and .PAP. After running the aligned file, an alignment file is created which is used for modeling.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/9.png" alt="" /></div>
+<ol start="8" type="1">
+<li>Now the script file is run using the command interpreter as shown below:</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/10.png" alt="" /></div>
+<p>The following file is the alignment file produced by the software. In this file, the query sequence is globally aligned with the template and the '*' indicates the perfect match in the sequence. If the alignment results are not satisfactory, we can go back to the template selection step and replace the template with another protein with comparable similarity.</p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/11.png" alt="" /></div>
+<ol start="9" type="1">
+<li>Once a target-template alignment is constructed, software calculates a 3D model of the target completely automatically, using its automodel class. The following script will generate five similar models of betalactoglobulin based on the selected template structure and also based on the alignment in file (file "betalactoglobulin-model-single.py"). The number of modes to be generated here must be mentioned, if the multiple models are desired at the end of the session.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/12.png" alt="" /></div>
+<p>The Script file is run using the command interpreter as shown below:</p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/13.png" alt="" /></div>
+<ol start="10" type="1">
+<li>The output file has a statistical score calculated called the DOPE (Discrete Optimized Protein Energy) score and GA341 score. After the models are created, each of their DOPE Scores and GA341 Score are observed to that rank the models on the basis of their energy levels. Models with the lowest DOPE assessment score, or with the highest GA341 assessment score have the most stable minimized energy, and therefore are picked from the rest of the models for further protein structure analysis. Range of the GA341 scores are 0.0 (worst) to 1.0 (native-like) but DOPE score values are more reliable in distinguishing good models from the bad ones. In the example shown they have selected the B99990001.pdb and B99990002.pdb as the optimal models with the most stable structure and the least energy.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/14.png" alt="" /></div>
+<p>Two structures were built whose snapshots are provided below.</p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/15.png" alt="" /></div>
+<p>The models created contain the co-ordinates of the model in .pdb format. These models can be viewed by any molecular visualization software able to read .pdb files such as Rasmol, Chimera, Pymol, etc.</p>
+<p><br /><strong>Evaluation/Validation of the model generated:&nbsp;</strong></p>
+<ol start="11" type="1">
+<li>Once the models are generated, they must be evaluated for any missing residues, side chain and also to check for steric slashes. The model evaluation can be carried out by the software itself or even with web based tool like ProCheck, ProSA, Verify3D. For this example we have validated the model using the MODELLER software. We need to obtain the model "evaluate_model.py" and mention the name of the pdb file to be evaluated. We have mentioned the file name "betalactoglobulin.B99990002.pdb"</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/16.png" alt="" /></div>
+<ol start="12" type="1">
+<li>Now, the script file is run using the command interpreter as shown below:</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/17.png" alt="" /></div>
+<ol start="13" type="1">
+<li>This profile is written to a file "betalactoglobulin.profile", which can be used as input to a graphing program. For example, the plot shown below, it is plotted with GNUPLOT. Alternatively, the plot_profiles.py script can be used which is included in the tutorial zip file to plot profiles with the Python matplotlib package.</li>
+</ol>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp14/18.png" alt="" /></div>
+<p>The above graph displays the difference in the DOPE score per residue of the template with the model generated. This profile is written to a file "betalactoglobulin.profile", which can be used as input to a graphing program. For example, the plot shown below, it is plotted with GNUPLOT. By analyzing the above graph, we can see that the template residues which are in the range of 50 - 80 and positions 240 - 270 are most conserved with the new generated model. Further, some literature studies on the proteins also revealed one of the regions to be active site of the protein. The variable regions of the model can be evaluated by more comprehensive programs like Advance Modeling, Schrodinger, Robetta etc.</p>
+<p>Use the <a href="http://htmltidy.net/" rel="external nofollow">free online HTML tidy</a> to compose similar articles in your web browser.</p>
+<p></p>
