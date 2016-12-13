@@ -1,0 +1,29 @@
+<p><button onclick="popup()">Full Screen</button></p>
+<p><iframe src="http://www.bio.iitb.ac.in/%7Esanjeeva/virtual_lab/Virtual_Laboratory/exp-3/exp3.html" height="602" width="802"> </iframe></p>
+<script>// <![CDATA[
+function popup(){
+ window.open('http://www.bio.iitb.ac.in/%7Esanjeeva/virtual_lab/Virtual_Laboratory/exp-3/exp3.html', '_blank', 'toolbar=0,location=0,menubar=0');
+ }
+// ]]></script>
+<p></p>
+<p>
+<script>// <![CDATA[
+// ****** ALSO MODIFY THE URLS GIVEN ABOVE **************
+// ********MODIFY THIS SECTION **************************
+
+var lab_id = "BIOTECH25"; 
+var exp_name = "Gel-based proteomics to analyze plant proteome"
+var lab_name = "Virtual Proteomics Laboratory"
+var user_id = "%%USER_ID%%"; //get the User ID as a string  
+var exp_id = "E99614"
+
+var server_url = "http://analytics-api.vlabs.ac.in:4000/"
+
+var xhttp = new XMLHttpRequest();
+var urlstr = server_url + user_id + "," + lab_id + "," + lab_name + "," + exp_id + "," + exp_name
+xhttp.open("GET", urlstr, true);
+xhttp.send();
+
+// *******DO NOT MODIFY THIS SECTION AGAIN ************
+// ]]></script>
+</p>

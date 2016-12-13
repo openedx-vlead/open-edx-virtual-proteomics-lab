@@ -1,0 +1,77 @@
+<p>Molecular docking is a well established computational technique which predicts the interaction energy between two molecules. This technique mainly incorporates algorithms like molecular dynamics, Monte Carlo stimulation, fragment based search methods which are mentioned in details in later part.</p>
+<p>Molecular docking studies are used to determine the interaction of two molecules and to find the best orientation of ligand which would form a complex with overall minimum energy. The small molecule, known as ligand usually fits within protein&rsquo;s cavity which is predicted by the search algorithm. These protein cavities become active when come in contact with any external compounds and are thus called as active sites.</p>
+<p>The results are analyzed by a statistical scoring function which converts interacting energy into numerical values called as the docking score; and also the interacting energy is calculated. The 3D pose of the bound ligand can be visualized using different visualizing tools like Pymol, Rasmol etc which could help in inference of the best fit of ligand. Predicting the mode of protein-ligand interaction can assume the active site of the protein molecule and further help in protein annotation. Moreover molecular docking has major application in drug discovery and designing.</p>
+<p><br /><strong>Different types of Interactions&nbsp;</strong></p>
+<p>Interactions between particles can be defined as a consequence of forces between the molecules contained by the particles. These forces are divided into four categories:</p>
+<ul type="circle">
+<li><strong>Electrostatic forces -</strong>&nbsp;Forces with electrostatic origin due to the charges residing in the matter. The most common interactions are charge-charge, charge-dipole and dipole-dipole.</li>
+<li><strong>Electrodynamics forces-</strong>most widely known is the Van der Waals interactions.</li>
+<li><strong>Steric forces -</strong>&nbsp;Steric forces are generated when atoms in different molecules come into very close contact with one another and start affecting the reactivity of each other. The resulting forces can affect chemical reactions and the free energy of a system.</li>
+<li><strong>Solvent-related forces -</strong>These are forces generated due to chemical reactions between the solvent and the protein or ligand. Examples are Hydrogen bonds (hydrophilic interactions) and hydrophobic interactions.</li>
+<li>A common characteristic of all these forces is their electromagnetic nature.</li>
+<li>Other physical factors - Conformational changes in the protein and the ligand are often necessary for successful docking.</li>
+</ul>
+<p><br /><strong>1) Molecular docking</strong>&nbsp;</p>
+<p>Molecular docking can be divided into two separate sections.</p>
+<p><br /><strong>Search Algorithm</strong></p>
+<p>These algorithms determine all possible optimal conformations for a given complex (protein-protein, protein-ligand) in a environment i.e. the position and orientation of both molecules relative to each other. They can also calculate the energy of the resulting complex and of each individual interaction.</p>
+<p>The different types of algorithms that can be used for docking analysis are given below</p>
+<ul type="circle">
+<li>Molecular dynamics</li>
+<li>Monte Carlo methods</li>
+<li>Genetic algorithms</li>
+<li>Fragment-based methods</li>
+<li>Point complementary methods</li>
+<li>Distance geometry methods</li>
+<li>Systematic searches</li>
+</ul>
+<p><br /><strong>2) Scoring function</strong></p>
+<p>These are mathematical methods used to predict the strength of the non-covalent interaction called as binding affinity, between two molecules after they have been docked. Scoring functions have also been developed to predict the strength of other types of intermolecular interactions, for example between two proteins or between protein and DNA or protein and drug. These configurations are evaluated using scoring functions to distinguish the experimental binding modes from all other modes explored through the searching algorithm.</p>
+<p>For example:</p>
+<p>&bull; Empirical scoring function of Igemdock</p>
+<p>Fitness = vdW + Hbond + Elec</p>
+<p>&bull; Binding Energy</p>
+<p>∆G<sub>bind</sub>&nbsp;= ∆G<sub>vdw</sub>&nbsp;+ ∆Gh<sub>bond</sub>&nbsp;+ ∆G<sub>elect</sub>&nbsp;+ ∆G<sub>conform</sub>&nbsp;+ ∆G<sub>tor</sub>&nbsp;+ ∆G<sub>sol</sub></p>
+<p><br /><br /><strong>General concept of algorithm</strong></p>
+<p>1) A 'negative' image of the binding site is made - a collection of spheres of varying radii, each touching the molecular surface at just 2 points.</p>
+<p><br /><br /><br /><br /></p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp16/1.png" alt="" /></div>
+<p><br /><br /></p>
+<p>2) Ligand atoms are then matched to sphere centers where at least four distances between ligand atoms are matched to sphere center distances.</p>
+<p><br /><br /><br /><br /></p>
+<div><img src="http://pe-iitb.vlabs.ac.in/images/exp16/2.png" alt="" /></div>
+<p><br /><br /></p>
+<p>3) Proper orientation is achieved by a least squares fit of ligand atoms to the sphere centers.</p>
+<p>4) Orientation is checked for any steric clashes between ligand and receptor.</p>
+<p>5) If acceptable, then interaction energy is computed as a 'score' for that binding mode</p>
+<p>6) New orientations are obtained by matching different sets of atoms and sphere centers</p>
+<p>7) Top-scoring orientations are retained for subsequent analysis</p>
+<p><br /><br /><strong>Types of docking</strong>&nbsp;</p>
+<p>The following are majorly used type of docking are-</p>
+<ul type="circle">
+<li><strong>Lock and Key or Rigid Docking &ndash;</strong>In rigid docking, both the internal geometry of the receptor and ligand is kept fixed during docking</li>
+<li><strong>Induced fit or Flexible Docking -&nbsp;</strong>In this model, the ligand is kept flexible and the energy for different conformations of the ligand fitting into the protein is calculated. Though more time consuming, this method can evaluate many different possible conformations which make it more reliable.</li>
+</ul>
+<p><br /><br /><strong>Major steps in molecular docking:</strong><br /><strong>Step I &ndash; Building the Receptor</strong></p>
+<p>In this step the 3D structure of the receptor should be downloaded from PDB; and modified. This should include removal of the water molecules from the cavity, stabilizing charges, filling in the missing residues, generation the side chains etc according to the parameters available. After modification the receptor should be biological active and stable.</p>
+<p><br /><br /><strong>Step II &ndash; Identification of the Active Site</strong></p>
+<p>After the receptor is built, the active site within the receptor should be identified. The receptor may have many active sites but the one of the interest should be selected. Most of the water molecules and heteroatoms if present should be removed.</p>
+<p><br /><br /><strong>Step III &ndash; Ligand Preparation</strong></p>
+<p>Ligands can be obtained from various databases like ZINC, PubChem or can be sketched using tools like Chemsketch. While selecting the ligand, the LIPINSKY&rsquo;S RULE OF 5 should be applied. The rule is important for drug development where a pharmacologically active lead structure is optimized stepwise for increased activity and selectivity, as well as drug-like properties, as described.</p>
+<p>For the selection of a ligand using LIPINSKY&rsquo;S RULE:</p>
+<ol type="1">
+<li>Not more than 5 &ndash;H bond donors.</li>
+<li>Molecular Weight NOT more than 500 Da.</li>
+<li>Log P not over 5 for octanol water partition coefficient.</li>
+<li>NOT more than 10 H bond acceptors.</li>
+</ol>
+<p><br /><br /><strong>Step IV- Docking</strong>&nbsp;</p>
+<p>This is the last step, where the ligand is docked onto the receptor and the interactions are checked. The scoring function generates scores depending on which the ligand with the best fit is selected.</p>
+<p><br /><br /><strong>Software available for Molecular Docking:</strong></p>
+<p><a href="http://www.schrodinger.com/">SCHRODINGER</a></p>
+<p><a href="http://www.dock.com/">DOCK</a></p>
+<p><a href="http://www.autolocktools.com/">AUTOLOCK TOOLS.</a></p>
+<p><a href="http://www.discoverystudio.com/">DISCOVERY STUDIO.</a></p>
+<p><a href="http://www.igemdock.com/">iGemDock</a></p>
+<p>The online <a href="https://html-cleaner.com/css/" rel="external nofollow">HTML and CSS cleaner</a> will take care of your dirty markup. Theyare both free online tools.</p>
+<p></p>

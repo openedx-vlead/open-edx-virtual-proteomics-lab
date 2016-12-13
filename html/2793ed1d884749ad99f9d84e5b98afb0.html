@@ -1,0 +1,110 @@
+<p>The experimental mass lists obtained in the previous experiment (Experiment # 6) are compared with a database of peptide mass values using different search engines. The different parameters are specified to identify the precise entry.</p>
+<ol><ol>
+<li>Select the&nbsp;<a href="http://www.matrixscience.com/help/database_help.html">sequence database</a>&nbsp;to be searched.&nbsp;<br /><br />
+<table>
+<tbody>
+<tr><th>DATABASE</th><th>COMMENT</th></tr>
+<tr>
+<td>EST</td>
+<td>EST divisions of Genbank, (currently EST_human, EST_mouse, EST_others)</td>
+</tr>
+<tr>
+<td>MSDB</td>
+<td>Comprehensive, non-identical protein database</td>
+</tr>
+<tr>
+<td>NCBInr</td>
+<td>Comprehensive, non-identical protein database</td>
+</tr>
+<tr>
+<td>SwissProt</td>
+<td>High quality, curated protein database</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol></ol><ol><ol>
+<li>Select taxonomy. It allows searches to be limited to entries from particular species or groups of species.</li>
+</ol></ol><ol><ol>
+<li>Specify the cleaving agent used for protein digestion. For example, Trypsin.</li>
+</ol></ol><ol><ol>
+<li>Choose a setting of 1 or maybe 2 missed cleavage sites ** (digest mixtures usually include some partial fragments, that is, peptides with missed cleavage sites).</li>
+</ol></ol><ol><ol>
+<li>Select &ldquo;fixed modifications&rdquo;. Fixed modifications are applied universally, to every instance of the specified residue(s) or terminus. There is no computational overhead associated with a fixed modification; it is simply equivalent to using a different mass for the modified residue(s) or terminus. For example, selecting Carboxymethyl (C) means that all calculations will use 161 Da as the mass of cysteine.</li>
+</ol></ol><ol><ol>
+<li>Select Variable modifications***. Variable modifications are those which may or may not be present. Mascot tests all possible arrangements of variable modifications to find the best match. For example, if Oxidation (M) is selected, and a peptide contains 3 methionines, Mascot will test for a match with the experimental data for that peptide containing 0, 1, 2, or 3 oxidised methionine residues.</li>
+</ol></ol><ol><ol>
+<li>Give the value of peptide Mass. The mass of the intact protein in Dalton applied as a sliding window. That is, the mass of the contiguous stretch of sequence which contains all of the matched peptide mass values. This will generally be less than the mass of the entire sequence entry. If this field is left blank, there is no restriction on protein mass.</li>
+</ol></ol><ol><ol>
+<li>Set the value of peptide tolerance.&nbsp;<br />The error window on experimental peptide mass values, Units can be selected from:&nbsp;<br /><br />
+<table>
+<tbody>
+<tr><th>PERCENTAGE</th><th>FRACTION EXPRESSED AS A PERCENTAGE</th></tr>
+<tr>
+<td>mmu</td>
+<td>absolute milli-mass units, i.e. units of .001 Da</td>
+</tr>
+<tr>
+<td>ppm</td>
+<td>fraction expressed as parts per million</td>
+</tr>
+<tr>
+<td>Da</td>
+<td>absolute units of Da</td>
+</tr>
+<tr>
+<td>SwissProt</td>
+<td>High quality, curated protein database</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol></ol><ol><ol>
+<li>Specify whether experimental peptide mass values in a peptide mass fingerprint search include the mass of the charge carrier, MH+ or M-H-, or whether they correspond to neutral, Mr values.</li>
+</ol></ol><ol><ol>
+<li>Specify whether the experimental mass values are average or monoisotopic.</li>
+</ol></ol><ol><ol>
+<li>Browse the data file or enter the peptide mass values in the query window.</li>
+</ol></ol><ol><ol>
+<li>Set the value of report hits to 10.This will display the best 10 hits in a search results report.</li>
+</ol></ol>
+<h4>Note</h4>
+<p>For a Peptide Mass Fingerprint, the EST databases are not available. It makes no sense to search a set of peptide masses against EST because the entries are just short stretches of sequence, not complete proteins.</p>
+<p>Setting the number of allowed missed cleavage sites to zero simulates a limit digest. If you are confident that your digest is perfect, with no partial fragments present, this will give maximum discrimination and the highest score. Don't specify a higher number without good reason, because each additional level of missed cleavages increases the number of calculated peptide masses to be matched against the experimental data. If the actual digest does not contain extended partials, this simply increases the number of random matches, and so reduces discrimination.</p>
+<p>Variable modifications can be a very powerful means of finding a match, but there are also dangers to be aware of. Even a single variable modification will generate many possible additional peptides to be tested. More than one variable modification causes the number of arrangements to increase geometrically. This means that a search can take dramatically longer than the same search with fixed modifications. More importantly, testing all possible arrangements of modifications generates many more random matches, so that discrimination can be sharply reduced. The best advice is to use variable modifications sparingly; never select a large number "just in case". MASCOT allows up to 9 variable modifications to be specified but, in most cases, a better approach is to do a first pass search with a small number of variable modifications followed by an error tolerant, second pass search to pick up additional matches to peptides containing unusual modifications.</p>
+<table>
+<tbody>
+<tr>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide1.JPG"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide1.JPG" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide2.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide2.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide3.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide3.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide4.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide4.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide5.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide5.jpg" alt="" /></a></td>
+</tr>
+<tr>
+<td>Macot home page</td>
+<td>Databases for analysis</td>
+<td>Peptide tolerence parameters</td>
+<td>MAscot results display</td>
+<td>Deteiled results for protein identification</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide6.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide6.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide7.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide7.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide8.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide8.jpg" alt="" /></a></td>
+<td><a href="http://pe-iitb.vlabs.ac.in/exp10/images/Slide9.jpg"><img src="http://pe-iitb.vlabs.ac.in/exp10/images/Slide9.jpg" alt="" /></a></td>
+</tr>
+<tr>
+<td>Peptide Mass Fingerprinting-Data Analysis</td>
+<td>Spectrum from Peptide Mass Fingerprinting</td>
+<td>Peptide Mass Fingerprinting Data Analysis</td>
+<td>Data Analysis</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://wordhtml.com/" rel="nofollow">Word - HTML converter</a> and the <a title="HTML Cleaner" href="https://html-cleaner.com/">online HTML Cleaner</a> are the best free online tools to transform Word, Excel, Google docs, and any other document to web content.</p>
+<p></p>
