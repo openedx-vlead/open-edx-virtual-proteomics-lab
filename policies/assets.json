@@ -3,21 +3,21 @@
         "contentType": "image/jpeg", 
         "content_son": {
             "category": "asset", 
-            "course": "BIOTECH25", 
+            "course": "biotech25", 
             "name": "IITB-Virtual_Proteomics_Lab.jpg", 
-            "org": "IIT-Bombay", 
+            "org": "Virtual-Labs", 
             "revision": null, 
             "run": "Anytime", 
             "tag": "c4x"
         }, 
         "displayname": "IITB-Virtual Proteomics Lab.jpg", 
-        "filename": "asset-v1:IIT-Bombay+BIOTECH25+Anytime+type@asset+block@IITB-Virtual_Proteomics_Lab.jpg", 
+        "filename": "asset-v1:Virtual-Labs+biotech25+Anytime+type@asset+block@IITB-Virtual_Proteomics_Lab.jpg", 
         "import_path": "IITB-Virtual Proteomics Lab.jpg", 
         "locked": false, 
         "thumbnail_location": [
             "c4x", 
-            "IIT-Bombay", 
-            "BIOTECH25", 
+            "Virtual-Labs", 
+            "biotech25", 
             "thumbnail", 
             "IITB-Virtual_Proteomics_Lab.jpg", 
             null
